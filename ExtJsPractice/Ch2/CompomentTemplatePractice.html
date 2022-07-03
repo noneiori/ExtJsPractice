@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="ext-3.4.1/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            //建立一個複雜的模版類別
+            var myTpl = new Ext.Template(
+                '<div style="background-color:{color};margin:10px;">',
+                '<b>Name:{name}</b><br/>',
+                '<b>Age:{age}</b><br/>',
+                '<b>DOB:{dob}</b><br/>',
+                '</div> '
+            );
+            //預編譯模板，可以加快響應速度
+            myTpl.compile();
+
+            //使用物件設定要替換變數中的值，並用模板添加內容
+            myTpl.append(document.body, {
+                color: "#E9E9FF",
+                name: 'John Smith',
+                age: 20,
+                dob:'10/20/89'
+            });
+
+            myTpl.append(document.body, {
+                color: "#FFE9E9",
+                name: 'Naomi White',
+                age: 25,
+                dob: '03/17/84'
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

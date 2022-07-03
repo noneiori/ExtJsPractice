@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="ext-3.4.1/ext-all.js"></script>
+    <script>
+        Ext.onReady(function () {
+            var tplData = [{
+                color: "#FFE9E9",
+                name: 'Naomi White',
+                age: 25,
+                dob: '03/17/84',
+                cars: ['Jetta', 'Camry', 'S2000']
+            },
+            {
+                color: "#E9E9FF",
+                name: 'John Smith',
+                age: 20,
+                dob: '10/20/89',
+                cars: ['Civic', 'Accord', 'Camry']
+                }];
+
+
+            //使用tpl標籤封裝這個div的內容，for屬性值用「.」代表從這個陣列的ROOT開始iterate
+            
+            var myTpl = new Ext.XTemplate(
+                '<tpl for=".">',
+                '<div style="background-color:{color};margin:10px;">',
+                '<b>Name:{name}</b><br/>',
+                '<b>Age:{age}</b><br/>',
+                '<b>DOB:{dob}</b><br/>',
+                '<b>cars:</b>',
+                    '<tpl for="cars">',//只iterate cars這個變數
+                    '{.}',//顯示所有資料
+                        '<tpl if="this.isCamry(values)">',//執行isCamry這個方法，當if屬性的部份成立才會執行這塊tpl標籤內的部份，values代表該次iterate出的值
+                            '<b>(same car)</b>',
+                        '</tpl>',
+                        //注意 ]}(中、大括號) 2個符號中間不能有空白，否則會被當一般字串顯示                        
+                        '{[ (xindex < xcount) ? "," : ""]}',//判斷是否為最後一個，不是的情況下補逗號。xindex為當前索引值，xcount代表有多少值
+                    '</tpl>',
+                '</div>',
+                '</tpl>',
+                {
+                    isCamry: function (car) {
+                        return car == 'Camry';
+                    }
+                }
+            );
+
+            
+
+            myTpl.compile();
+
+            myTpl.append(document.body,tplData);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

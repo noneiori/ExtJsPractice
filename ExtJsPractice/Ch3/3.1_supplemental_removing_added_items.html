@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="../ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="../ext-3.4.1/ext-all.js"></script>
+    <script>
+        Ext.BLANK_IMAGE_URL = '../ext-3.4.1/resources/images/default/s.gif';
+
+
+        Ext.onReady(function () {
+            //建立2個panel物件
+            var panel1 = {
+                html: 'I am Panel1',
+                id: 'panel1',
+                frame: true,
+                height: 100
+            };
+
+            var panel2 = {
+                html: '<b> I am Panel2</b>',
+                id: 'panel2',
+                frame: true
+            };
+
+            //建立一個window物件，並將前面2個panel加入
+            var myWin = new Ext.Window({
+                id: 'myWin',
+                height: 250,
+                width: 400,
+                items: [
+                    panel1,
+                    panel2
+                ]
+            });
+
+            myWin.show();
+
+
+            var pnl = new Ext.Panel({
+                //在body初始化的時候就進行render，如果需要延遲render就忽略render與applyto這2個屬性
+                renderTo: Ext.getBody(),
+                contentEl: 'code',
+                hidden: true,
+                title: 'The following code is designed to be inserted into the Firebug console.',
+                width: 450,
+                height: 300,
+                frame: true,
+                layout: 'fit'
+
+            });
+
+            //fly方法代表只用一次，後面不再使用
+            Ext.fly(pnl.body.dom.childNodes[0]).fadeIn();
+
+            pnl.show();
+            pnl.el.fadeIn({
+                duration: 1.5
+            });
+
+        });
+    </script>
+
+    
+</head>
+<body>
+    <pre style="display:none;" id="code">
+    <code>
+Ext.getCmp('myWin').add({
+    title : 'Appended Panel',
+    id    : 'addedPanel',
+    html  : 'Hello there!'
+});
+
+Ext.getCmp('myWin').doLayout();
+
+Ext.getCmp('myWin').insert(1, {
+    title : 'Inserted Panel',
+    id    : 'insertedPanel',
+    html  : 'It is cool here!'
+});
+
+Ext.getCmp('myWin').doLayout();
+
+var panel = Ext.getCmp('addedPanel');
+Ext.getCmp('myWin').remove(panel);
+    </code>
+</pre>
+</body>
+</html>

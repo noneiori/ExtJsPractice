@@ -25,6 +25,28 @@
                 frame: true
             };
 
+            //建立內文物件
+            var content = {
+                html: 'content'
+            };
+
+            //建立第3個panel
+            var panel3 = {
+                xtype:'panel',
+                scrollable:true,
+                id: 't1',
+                frame: true,
+                //設定標題，可以使用陣列，會一起輸出這2個值
+                title: ['test1','<a href="#">test2</a>'],
+                //items裡面會塞入content跟panel1這2個物件
+                items: [
+                    content,
+                    panel1
+                ]
+            };
+
+            
+
             //建立一個window物件，並將前面2個panel加入
             var myWin = new Ext.Window({
                 id: 'myWin',
@@ -32,33 +54,46 @@
                 width: 400,
                 items: [
                     panel1,
-                    panel2
+                    panel2,
+                    panel3
                 ]
             });
 
             myWin.show();
 
+            var code = Ext.get('code');
+
+            var panel4 = panel3;            
 
             var pnl = new Ext.Panel({
                 //在body初始化的時候就進行render，如果需要延遲render就忽略render與applyto這2個屬性
                 renderTo: Ext.getBody(),
-                contentEl: 'code',
+                contentEl: code,
                 hidden: true,
                 title: 'The following code is designed to be inserted into the Firebug console.',
                 width: 450,
-                height: 300,
+                height: 600,
                 frame: true,
-                layout: 'fit'
-
+                layout: 'fit',
+                id:'pnl'
             });
 
             //fly方法代表只用一次，後面不再使用
             Ext.fly(pnl.body.dom.childNodes[0]).fadeIn();
-
+            
             pnl.show();
             pnl.el.fadeIn({
                 duration: 1.5
             });
+
+            Ext.getCmp('myWin').add({
+                title: 'Appended Panel',
+                id: 'addedPanel',
+                html: 'Hello there!'
+            });
+
+            Ext.getCmp('myWin').doLayout();
+            
 
         });
     </script>

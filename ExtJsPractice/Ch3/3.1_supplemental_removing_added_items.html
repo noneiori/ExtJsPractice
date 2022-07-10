@@ -86,14 +86,29 @@
                 duration: 1.5
             });
 
+                       
+
+            //利用getCmp抓取id為myWin的Compoment
             Ext.getCmp('myWin').add({
                 title: 'Appended Panel',
                 id: 'addedPanel',
                 html: 'Hello there!'
             });
+            //使用doLayout方法重新render一次
+            Ext.getCmp('myWin').doLayout();
+
+            //使用insert方法指定新增的位置
+            Ext.getCmp('myWin').insert(1, {
+                title: 'Inserted Panel',
+                id: 'insertedPanel',
+                html: 'It is cool here!'
+            });
 
             Ext.getCmp('myWin').doLayout();
-            
+
+            //移除panel1
+            var panel = Ext.getCmp('addedPanel');
+            Ext.getCmp('myWin').remove(panel);
 
         });
     </script>

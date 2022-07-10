@@ -1,0 +1,40 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Ext JS in Action Chapter 03 | Bubbling events</title>
+    <link href="../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="../ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="../ext-3.4.1/ext-all.js"></script>
+
+</head>
+<body>
+<script type="text/javascript">
+Ext.onReady(function() {
+    /**
+     * This example shows how event bubbling occurs.
+     */
+    var console = window.console;
+    //使用on函式建立onclick事件
+    Ext.get('myDiv').on('click', function(eventObj, elRef) {
+         console.log('myDiv click Handler, source elment ID: ' +  elRef.id);
+    });
+
+    Ext.get('myHref').on('click', function(eventObj, elRef) {
+        console.log('myHref click handler, source elment ID: ' + elRef.id);
+    });
+
+
+
+});
+</script>
+
+<div id="myDiv">
+    MyDiv Text
+    <a href="#" id="myHref">
+        My Href
+    </a>
+</div>
+
+
+</body>
+</html>

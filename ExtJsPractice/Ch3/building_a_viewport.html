@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Ext JS in Action Chapter 03 | Building a viewport</title>
+    <link href="../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="../ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="../ext-3.4.1/ext-all.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+Ext.BLANK_IMAGE_URL = '/extjs/resources/images/default/s.gif';
+Ext.onReady(function() {
+    /**
+     * This example demonstrates how to construct a simple viewport that implements a BorderLayout
+     */
+    //產生一個viewport(一種具RWD的全螢幕佈局)
+    new Ext.Viewport({
+        layout: 'border',
+        id:'v1',
+        items  : [
+            {
+                height: 75,
+                //region屬性設定佈局位置，使用東西南北與center的值來設定
+                region: 'north',                
+                title  : '(標題)Does Santa live here?'
+            },
+            {
+                width  : 150,
+                region : 'west',
+                title  : 'The west region rules'
+            },
+            {
+                region : 'center',
+                title  : 'No, this region rules!'
+            }
+        ]
+     });
+
+
+
+});
+
+</script>
+</body>
+</html>

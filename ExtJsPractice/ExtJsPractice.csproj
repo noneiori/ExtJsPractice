@@ -72,7 +72,16 @@
     <Content Include="Ch2\HtmlPage1.html" />
     <Content Include="Ch2\TemplatePractice.html" />
     <Content Include="Ch2\XTemplate.html" />
+    <Content Include="Ch3\3.1_supplemental_moving_items_from_one_container_to_another.html" />
     <Content Include="Ch3\3.1_supplemental_removing_added_items.html" />
+    <Content Include="Ch3\building_a_viewport.html" />
+    <Content Include="Ch3\event_bubbling.html" />
+    <Content Include="Ch3\event_bubbling_with_custom_context_menu.html" />
+    <Content Include="Ch3\event_bubbling_with_stopEvent.html" />
+    <Content Include="Ch3\event_management.html" />
+    <Content Include="Ch3\software_driven_events.html" />
+    <Content Include="Ch3\using_xtypes.html" />
+    <Content Include="Ch3\using_xtypes_inline.html" />
     <Content Include="ext-3.4.1\adapter\ext\ext-base-debug.js" />
     <Content Include="ext-3.4.1\adapter\ext\ext-base.js" />
     <Content Include="ext-3.4.1\adapter\jquery\ext-jquery-adapter-debug.js" />

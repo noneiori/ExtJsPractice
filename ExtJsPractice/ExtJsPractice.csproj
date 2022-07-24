@@ -82,6 +82,15 @@
     <Content Include="Ch3\software_driven_events.html" />
     <Content Include="Ch3\using_xtypes.html" />
     <Content Include="Ch3\using_xtypes_inline.html" />
+    <Content Include="Ch4\4.1_building_toolbars_for_use_in_a_panel.html" />
+    <Content Include="Ch4\4.2_adding_buttons_and_tools_to_our_existing_panel.html" />
+    <Content Include="Ch4\4.3_building_an_animated_window.html" />
+    <Content Include="Ch4\4.4_creating_a_rigid_modal_window.html" />
+    <Content Include="Ch4\4.5_building_a_dynamically_updating_progressbar_in_a_MessageBox.html" />
+    <Content Include="Ch4\4.6_Implementing_a_tab_panel.html" />
+    <Content Include="Ch4\4.7_Exploring_scrollable_tabs.html" />
+    <Content Include="Ch4\index.php" />
+    <Content Include="Ch4\MessageBox_callbacks.html" />
     <Content Include="ext-3.4.1\adapter\ext\ext-base-debug.js" />
     <Content Include="ext-3.4.1\adapter\ext\ext-base.js" />
     <Content Include="ext-3.4.1\adapter\jquery\ext-jquery-adapter-debug.js" />

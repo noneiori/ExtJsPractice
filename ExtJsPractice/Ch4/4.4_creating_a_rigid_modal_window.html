@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Ext JS in Action Chapter 04 | Listing 4.4 Creating a rigid modal Window</title>
+    <link href="../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="../ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="../ext-3.4.1/ext-all.js"></script>
+</head> 
+<body> 
+
+<script type="text/javascript">
+Ext.BLANK_IMAGE_URL = '/extjs/resources/images/default/s.gif';
+
+Ext.onReady(function() {
+    var win = new Ext.Window({
+        height      : 75,
+        width: 200,
+        //是否要mask後方的圖層，讓那些元件不能點擊或選取，預設值為false
+        modal       : true,
+        title       : 'This is one rigid window',
+        html: 'Try to move or resize me. I dare you.',
+        //是否使用較為透明的背景
+        plain       : true,
+        border      : false,
+        resizable   : false,
+        draggable   : false,
+        closable    : false,
+        buttonAlign : 'center',
+        buttons     : [
+            {
+                text    : 'I give up!',
+                handler : function() {
+                    win.close();
+                }
+            }
+        ]
+    });
+    win.show();
+
+});
+
+</script> 
+</body>
+</html>

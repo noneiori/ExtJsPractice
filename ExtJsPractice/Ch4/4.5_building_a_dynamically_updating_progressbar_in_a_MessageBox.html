@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Ext JS in Action Chapter 04 Listing 4.5 | Building a dynamically updating progressbar in a MessageBox</title>
+    <link href="../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="../ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="../ext-3.4.1/ext-all.js"></script>
+</head> 
+<body> 
+
+<script type="text/javascript">
+Ext.BLANK_IMAGE_URL = '/extjs/resources/images/default/s.gif';
+
+Ext.onReady(function() {
+
+    Ext.MessageBox.show({
+       title        : 'Hold on there cowboy!',
+        msg: "We're doing something...",
+       //初始化進度條文字
+       progressText : 'Initializing...',
+        width: 300,
+       //是否顯示進度條
+       progress     : true,
+       closable     : false
+    });
+
+    //進度條的進度推進方式
+    var updateFn = function(num){
+        return function () {
+           //將進度分割成6等分，完成的顯示方式
+          if(num == 6){
+             Ext.MessageBox.updateProgress(100, 'All Items saved!');
+             Ext.MessageBox.hide.defer(1500, Ext.MessageBox);
+          }
+          else {
+              //進度每次推進的顯示方式
+             var i = num/6;
+             var pct = Math.round(100 * i);
+             Ext.MessageBox.updateProgress(i, pct + '% completed');
+          }
+      };
+    };
+    //每0.5秒推進一次進度
+    for (var i = 1; i < 7; i++){
+       setTimeout(updateFn(i), i * 500);
+    }
+
+});
+
+</script> 
+</body>
+</html>

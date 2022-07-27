@@ -1,0 +1,50 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Ext JS in Action Chapter 07</title>
+
+    <link href="../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="../ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="../ext-3.4.1/ext-all.js"></script>
+</head>
+<body>
+                    
+<script type="text/javascript">
+    //資料讀取順序
+    /*
+     * 1．RAW DATA
+     * 2．READER
+     * 3．RECORD
+     * 4．STORE
+     */
+    Ext.onReady(function() {
+    var arrayData = [                                                      // 1
+        ['Jay Garcia',    'MD'],
+        ['Aaron Baker',   'VA'],
+        ['Susan Smith',   'DC'],
+        ['Mary Stein',    'DE'],
+        ['Bryan Shanley', 'NJ'],
+        ['Nyri Selgado',  'CA']
+    ];
+
+    var memoryProxy  = new Ext.data.MemoryProxy(arrayData);                 // 2
+
+    var nameRecord = Ext.data.Record.create([                               // 3
+        { name : 'personName',  mapping : 0  },                              // 4
+        { name : 'state',       mapping : 1  }
+    ]);
+
+    var arrayReader = new Ext.data.ArrayReader({}, nameRecord);             // 5
+
+    var store = new Ext.data.Store({                                        // 6
+        reader : arrayReader
+        //proxy  : memoryProxy
+    });
+        
+ 
+});
+
+</script>
+</body>
+</html>
+

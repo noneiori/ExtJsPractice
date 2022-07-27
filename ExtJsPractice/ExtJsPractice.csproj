@@ -82,6 +82,13 @@
     <Content Include="Ch3\software_driven_events.html" />
     <Content Include="Ch3\using_xtypes.html" />
     <Content Include="Ch3\using_xtypes_inline.html" />
+    <Content Include="Ch7\7.1_Building_an_array_store_the_long_way.html" />
+    <Content Include="Ch7\7.2_Building_an_array_store_and_binding_to_a_GridPanel.html" />
+    <Content Include="Ch7\Building_our_complex_gridpanel.html" />
+    <Content Include="Ch7\Building_our_simple_gridpanel.html" />
+    <Content Include="Ch7\data.sql.js" />
+    <Content Include="Ch7\index.php" />
+    <Content Include="Ch7\WebForm1.aspx" />
     <Content Include="ext-3.4.1\adapter\ext\ext-base-debug.js" />
     <Content Include="ext-3.4.1\adapter\ext\ext-base.js" />
     <Content Include="ext-3.4.1\adapter\jquery\ext-jquery-adapter-debug.js" />
@@ -3240,6 +3247,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ch7\Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ch7\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ch7\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3279,6 +3296,8 @@
     <Content Include="ext-3.4.1\resources\images\yourtheme\window\top-bottom.psd" />
     <Content Include="Ch10\LineChart_basic_single_series.html" />
     <Content Include="Ch10\getNewHireData.json" />
+    <None Include="Ch7\.5.4_using_custom_templates.html.swp" />
+    <Content Include="Ch7\Handler1.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

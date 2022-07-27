@@ -1,0 +1,83 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Ext JS in Action Chapter 04 | Listing 4.1 Building toolbars for use in a Panel</title>
+    <link href="../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="../ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="../ext-3.4.1/ext-all.js"></script>
+</head> 
+<body> 
+
+<script type="text/javascript">
+    /**
+     * JSDoc格式註解方法測試
+     * 
+     */
+    function myfunction() {
+        
+    }
+
+    Ext.BLANK_IMAGE_URL = '../ext-3.4.1/resources/images/default/s.gif';
+    
+    Ext.onReady(function () {
+
+        //建立 handler，有哪些參數可以用，取決到這個handler是給哪個物件用
+        //因為此handler將會設定給Ext.Button，所以需要查詢的對象為Ext.Button.handler屬性
+    var myBtnHandler = function(btn) {                // 1
+        Ext.MessageBox.alert('You Clicked', btn.text);
+    };
+
+    var fileBtn =  new Ext.Button({                   // 2
+        text    : 'File',
+        handler : myBtnHandler
+    });
+    var editBtn = new Ext.Button({                    // 3
+        text    : 'Edit',
+        handler : myBtnHandler
+    });
+
+        //產生填滿的的工具列空間，作為留白的空間
+    var tbFill = new Ext.Toolbar.Fill();             // 4
+        
+    var myTopToolbar = new Ext.Toolbar({             // 5
+        items : [
+            fileBtn,            
+            tbFill,
+            editBtn
+        ]
+    });
+
+    var myBottomToolbar = [                          // 6
+        {
+            text    : 'Save',
+            handler : myBtnHandler
+        },
+        // 產生透明分隔符字樣
+        '-',
+        {
+            text    : 'Cancel',
+            handler : myBtnHandler
+        },
+        //下一個項目的位置要往最右邊推
+        '->',
+        '<b>Items open: 1</b>'
+    ];
+
+
+    var myPanel = new Ext.Panel({
+        //可以使用數字或百分比
+        width: "100%",
+        height      : 150,
+        title       : 'Ext Panels rock!',
+        collapsible : true,
+        renderTo    : Ext.getBody(),
+        tbar        : myTopToolbar,
+        bbar        : myBottomToolbar,
+        html        : 'My first Toolbar Panel!'
+    });
+
+});
+
+</script> 
+</body>
+</html>

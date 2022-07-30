@@ -67,6 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ch10\10.1_LineChart_basic_single_series.html" />
+    <Content Include="Ch10\getNewHireData.php" />
+    <Content Include="Ch10\WebForm1.aspx" />
     <Content Include="Ch2\Ch2.html" />
     <Content Include="Ch2\CompomentTemplatePractice.html" />
     <Content Include="Ch2\HtmlPage1.html" />
@@ -91,6 +94,7 @@
     <Content Include="Ch4\4.7_Exploring_scrollable_tabs.html" />
     <Content Include="Ch4\index.php" />
     <Content Include="Ch4\MessageBox_callbacks.html" />
+    <Content Include="Ch5\ScrollWithMe.js" />
     <Content Include="Ch5\5.10_%281%29_HBox_layout_pack_start.html" />
     <Content Include="Ch5\5.10_%282%29_HBox_layout_pack_center.html" />
     <Content Include="Ch5\5.10_%283%29_HBox_layout_pack_end.html" />
@@ -112,7 +116,13 @@
     <Content Include="Ch5\5.7_The_AccordionLayout.html" />
     <Content Include="Ch5\5.8_The_CardLayout_in_action.html" />
     <Content Include="Ch5\5.9_Exploring_the_ColumnLayout.html" />
+    <Content Include="Ch5\bootstrap.css" />
     <Content Include="Ch5\index.php" />
+    <Content Include="Ch5\sticky-sidebar.min.js" />
+    <Content Include="Ch5\sticky.min.js" />
+    <Content Include="Ch5\StickyTest.html" />
+    <Content Include="Ch5\vanilla-sticky.js" />
+    <Content Include="Ch5\ViewportTest.html" />
     <Content Include="Ch7\7.1_Building_an_array_store_the_long_way.html" />
     <Content Include="Ch7\7.2_Building_an_array_store_and_binding_to_a_GridPanel.html" />
     <Content Include="Ch7\Building_our_complex_gridpanel.html" />
@@ -3278,6 +3288,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ch10\Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ch10\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ch10\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ch7\Handler1.ashx.cs">
       <DependentUpon>Handler1.ashx</DependentUpon>
     </Compile>
@@ -3327,6 +3347,7 @@
     <Content Include="ext-3.4.1\resources\images\yourtheme\window\top-bottom.psd" />
     <Content Include="Ch10\LineChart_basic_single_series.html" />
     <Content Include="Ch10\getNewHireData.json" />
+    <Content Include="Ch10\Handler1.ashx" />
     <None Include="Ch7\.5.4_using_custom_templates.html.swp" />
     <Content Include="Ch7\Handler1.ashx" />
     <None Include="packages.config" />

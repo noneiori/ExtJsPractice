@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Ext JS in Action Chapter 9 : DataView and ListView</title>
+
+    <link href="../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="../ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="../ext-3.4.1/ext-all.js"></script>
+
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+    Ext.onReady(function() {
+
+
+    var proxy = new Ext.data.ScriptTagProxy({
+        url: 'getNewHireData.json'
+    });
+    var remoteStore = {
+        xtype    : 'jsonstore',
+        autoLoad : true,
+        url: 'getNewHireData.json',
+        storeId  : 'employeeDv',
+        root     : 'records',
+        proxy    : proxy,
+        fields   : [
+            { name : "year",     mapping : "year"     },
+            { name : "total",    mapping : "total"    },
+            { name : "newHires", mapping : "newHires" }
+        ]
+    };
+
+        var chart = {
+            id: 'chart1',
+            xtype: 'linechart',
+            store: remoteStore,
+            xField: 'year',
+            yField: 'total',
+            width: 100,
+            height: 100
+        };
+
+    new Ext.Window({
+        width  : 450,
+        height : 250,
+        items  : chart
+    }).show();
+});
+
+</script>
+</body>
+</html>
+

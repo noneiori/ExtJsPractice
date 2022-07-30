@@ -1,76 +1,121 @@
+﻿<!--此案例中加入window的解決方案-->
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Ext JS in Action Chapter 05 | Listing  5.13 Flexing the  Border Layout</title>
-<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all.css" />
-<script type="text/javascript" src="/extjs/adapter/ext/ext-base.js"></script>
-<script type="text/javascript" src="/extjs/ext-all.js"></script>
-</head> 
-<body> 
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Ext JS in Action Chapter 05 | Listing  5.13 Flexing the  Border Layout</title>
+    <link href="../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet" />
+    <script src="../ext-3.4.1/adapter/ext/ext-base.js"></script>
+    <script src="../ext-3.4.1/ext-all.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        Ext.BLANK_IMAGE_URL = '/extjs/resources/images/default/s.gif';
 
-<script type="text/javascript">
-Ext.BLANK_IMAGE_URL = '/extjs/resources/images/default/s.gif';
+        var w = window.innerWidth;
+        var h = window.innerHeight;
 
-Ext.onReady(function() {
-
-    new Ext.Viewport({
-        layout   : 'border',
-        defaults : {
-            frame  : true,
-            split  : true
-        },
-        items : [
-            {
-                title       : 'North Panel',
-                region      : 'north',
-                height      : 100,
-                minHeight   : 100,
-                maxHeight   : 150,
-                collapsible : true
-            },
-            {
-                title       : 'South Panel',
-                region      : 'south',
-                height      : 75,
-                split       : false,
-                margins     : {
-                    top : 5
+        var win = new Ext.Window({
+            title: 'Hello',
+            height: 200,
+            width: 400,
+            //在這邊的設定是依據父容器而產生的相對位置
+            //x: 0,
+            //y:0,
+            layout: 'fit',
+            //可以縮小
+            collapsible: true,
+            //不能關閉
+            closable: false,
+            //使用listener加入初始化時的設定
+            listeners: {
+                show: function () {
+                    //設定初始位置，以頁面為依據
+                    this.setPagePosition(w - this.getWidth(), 0);
+                    //this.setX(w);
+                    //this.setY(0);
                 }
-            },
-            {
-                title       : 'East Panel',
-                region      : 'east',
-                width       : 100,
-                minWidth    : 75,
-                maxWidth    : 150,
-                collapsible : true
-            },
-            {
-                title        : 'West Panel',
-                region       : 'west',
-                collapsible  : true,
-                collapseMode : 'mini'
-            },
-            {
-                xtype  : 'container',
-                region : 'center',
-                layout : 'fit',
-                id     : 'centerRegion',
-                autoEl : {},
-                items  : {
-                    title : 'Center Region',
-                    id    : 'centerPanel',
-                    html  : 'I am disposable',
-                    frame : true
-                }
-
             }
-        ]
-    });
+        });
+
+        Ext.onReady(function () {
+
+            new Ext.Viewport({
+                layout: 'border',
+                defaults: {
+                    frame: true,
+                    split: true
+                },
+                items: [
+                    {
+                        title: 'North Panel',
+                        region: 'north',
+                        height: 100,
+                        minHeight: 100,
+                        maxHeight: 150,
+                        collapsible: true
+                    },
+                    //{
+                    //    title       : 'South Panel',
+                    //    region      : 'south',
+                    //    height      : 75,
+                    //    split       : false,
+                    //    margins     : {
+                    //        top : 5
+                    //    }
+                    //},
+                    {
+                        title: 'East Panel',
+                        region: 'east',
+                        width: 100,
+                        minWidth: 75,
+                        maxWidth: 150,
+                        collapsible: true
+                    },
+                    {
+                        title: 'West Panel',
+                        region: 'west',
+                        collapsible: true,
+                        collapseMode: 'mini'
+                    },
+                    {
+                        xtype: 'container',
+                        region: 'center',
+                        layout: 'auto',
+                        id: 'centerRegion',
+                        //autoEl : {},
+                        items: [
+                            //在這邊加入一開始設定好的windows物件
+                            win,
+                            {
+                                xtype: 'panel',
+                                title: 'Center Region',
+                                id: 'centerPanel',
+                                cls: 'contentParent',
+                                html: '<div data-sticky-container id="main-content" class="contentParent">' +
+                                    '<div class="sticky">test</div>' +
+                                    '</div>',
+                                frame: true
+                            }
+                        ]
+                    }
+                ]
+            });
+            
+            var swm = new ScrollWithMe(document.querySelector('.sticky'), {
+                startAt: 0
+            });
+
+            //最後要記得執行window.show()，否則不會出現
+            win.show();
+
+        });
 
 
-});
+    </script>
 
-</script> 
+    <script type="text/javascript">
+
+    </script>
+
 </body>
 </html>

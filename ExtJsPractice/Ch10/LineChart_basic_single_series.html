@@ -13,13 +13,14 @@
         Ext.onReady(function () {
 
             var proxy = new Ext.data.ScriptTagProxy({
-                url: 'getNewHireData.json'
+                url: 'WebForm1.aspx'
             });
             var remoteStore = {
                 xtype: 'jsonstore',
                 autoLoad: true,
                 storeId: 'employeeDv',
                 root: 'records',
+                //url: 'getNewHireData.json',
                 proxy: proxy,
                 fields: [
                     { name: "year", mapping: "year" },
